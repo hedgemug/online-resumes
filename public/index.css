@@ -1,0 +1,15 @@
+body {    
+  font-family: Impact, sans-serif;
+  #color: white;
+  #background-image: url('Rain.jpg');
+}
+
+.small-img {
+    display:block;
+    width: 70px;
+  }
+
+  p {
+  font-family: Tahoma, Monotipe;
+  font-size:0.8em;  
+}  

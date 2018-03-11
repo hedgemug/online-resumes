@@ -2,13 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My App</title>
+  <title>Online Resumes App</title>
+  <link rel="stylesheet" href="index.css">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
   <script src="index.js" defer></script>
 </head>
 <body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center">Online Resumes App</a>
+      <ul class="left hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li class="active"><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div id="vue-app">
 
     <router-view></router-view>
@@ -24,10 +36,56 @@
 </body>
 </html>
 
-<template id="home-page">
+<template id="student-index-page">
   <div class="vue-component">
+    <div  v-for="student in students">
+      <div class="row">
+        <div class="col s3; center-align">
+          <a href="/#/student/id"><img class="small-img" src="/images/1.jpg" alt="students photo"></a>
+        </div>
+        <div class="col s9">
+          <p class="left-align; valign-wrapper">{{student.student_name}},  {{student.job_title}}</p>
+          <p class="left-align; valign-wrapper">{{student.university_title}}</p>
 
-    <h1>{{ message }}</h1>
+        </div>
+      </div>
 
-  </div>
+      
+
+        <!-- <img class="card-img-top small-img" :src="product.images[0]" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title"><a :href="'/#/products/' + product.id">{{ product.name }}</a></h4>
+            <p class="card-text ingredients">Price: ${{ product.price }}</p>
+            <p class="card-text directions">Information: {{ product.description }}</p>
+            <a v-on:click="setCurrentProduct(product)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">More info</a>
+            <a :href="'/#/products/' + product.id + '/edit'" class="btn btn-primary">Edit</a>            
+          </div>          
+        </div>       -->
+      
+    </div>
+      <!-- Modal -->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{ currentProduct.name }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          <
+          <div class="modal-body">
+            <img class="small-img" :src="currentProduct.images" alt="Card image cap">
+            <p> Price: ${{currentProduct.price }} </p>
+            <p> {{currentProduct.description }} </p>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>            
+          </div>
+        </div>
+      </div>
+    </div>
+ -->
+
+  </div>      
 </template>
