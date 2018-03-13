@@ -4,12 +4,24 @@ body {
   #background-image: url('Rain.jpg');
 }
 
+.big-frame {
+  width: 1000px;
+  height: auto;
+  margin: auto;  
+  border: 3px solid #EE6E73; 
+}
+
 .small-img {
     display:block;
-    width: 70px;
+    width: 100px;
   }
 
   p {
   font-family: Tahoma, Monotipe;
   font-size:0.8em;  
+}
+
+.ghost {
+  font-style:normal;
+  color:#888
 }  

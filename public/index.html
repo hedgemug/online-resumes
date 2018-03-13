@@ -20,6 +20,7 @@
       </ul>
     </div>
   </nav>
+  <br>
 
   <div id="vue-app">
 
@@ -41,12 +42,41 @@
 </body>
 </html>
 
-<template id="student-index-page">
-  <div class="vue-component">
-    <div  v-for="student in students">
+<template id="student-index-page">  
+  <div class="vue-component big-frame">
+    
+    <div class="row">
+        <div class="col s4 center-align">
+          Search by name: <input v-model="nameFilter" list="names">
+        </div>
+        <div class="col s4 center-align">
+          Search by job title: <input v-model="jobTitleFilter">
+        </div>
+        <div class="col s4 center-align">
+          Search by school: <input v-model="schoolFilter">
+        </div>
+    </div>
+
+    <datalist id="names">
+      <option v-for="student in students">{{ student.student_name }}</option>
+    </datalist>    
+    
+    <div class="row">
+      <div class="col s9 center-align">
+        <div>
+          <button v-on:click="setSortAttribute('student_name')" class="btn modal-trigger waves-effect waves-light z-depth-4">Sort by name</button>
+          <button v-on:click="setSortAttribute('job_title')" class="btn modal-trigger waves-effect waves-light z-depth-4">Sort by job</button>
+          <button v-on:click="setSortAttribute('university_title')" class="btn modal-trigger waves-effect waves-light z-depth-4">Sort by school</button>
+        </div>
+      </div>
+    </div>    
+    <br>
+
+    <div  v-for="student in sortedStudents" v-if="isValidStudent(student)" v-bind:key="student.id">
+    
       <div class="row">
-        <div class="col s3; center-align">
-          <a href="/#/student/id"><img class="small-img" src="/images/1.jpg" alt="students photo"></a>
+        <div class="col s3 center-align">
+          <a href="/#/student/id"><img class="small-img z-depth-4" src="/images/1.jpg" alt="students photo"></a>
         </div>
         <div class="col s6">
           <p class="left-align; valign-wrapper">{{student.student_name}},  {{student.job_title}}</p>
@@ -55,7 +85,7 @@
         </div>
         <div class="col s3">
                   <!-- Modal Trigger -->
-          <button data-target="show-contact" class="btn modal-trigger" v-on:click="setCurrentStudent(student)">Contact</button>
+          <button data-target="show-contact" class="btn modal-trigger waves-effect waves-light z-depth-4" v-on:click="setCurrentStudent(student)">Contact</button>
 
         </div>
       </div>
@@ -65,7 +95,7 @@
     <div id="show-contact" class="modal">
       <div class="modal-content">        
         <h5>{{currentStudent.student_name}}</h5>
-        <img class="small-img" src="/images/1.jpg" alt="students photo">        
+        <img class="small-img z-depth-4" src="/images/1.jpg" alt="students photo">        
         <p>Email: {{ currentStudent.email }}</p>
         <p>Phone: {{ currentStudent.phone_number }}</p>
         <p>Linkedin: {{ currentStudent.linkedin_url }}</p>
