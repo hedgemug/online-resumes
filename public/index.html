@@ -45,7 +45,7 @@
   <div class="vue-component">
     <div  v-for="student in students">
       <div class="row">
-        <div class="col s3; center-align">
+        <div class="col s3 center-align">
           <a href="/#/student/id"><img class="small-img" src="/images/1.jpg" alt="students photo"></a>
         </div>
         <div class="col s6">
@@ -54,6 +54,7 @@
 
         </div>
         <div class="col s3">
+          <a class="waves-effect waves-light btn" :href="'/#/students/' + student.id">Resume</a>
                   <!-- Modal Trigger -->
           <button data-target="show-contact" class="btn modal-trigger" v-on:click="setCurrentStudent(student)">Contact</button>
 
@@ -77,4 +78,25 @@
           
 
   </div>      
+</template>
+
+<template id="students-show-page">
+  <div class="vue-component">
+    <div class="container">
+      <img src="images/1.jpg" alt="">
+      <div class="row">
+        <div class="col">
+          <h3>{{student.first_name}} {{student.last_name}}</h3>
+        </div>
+        <div class="col">
+          <h3>{{student.job_title}}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <p>{{student.bio}}</p>
+      </div>
+      
+      
+    </div>
+  </div>
 </template>
