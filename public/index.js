@@ -44,8 +44,8 @@ var StudentsIndexPage = {
          photo: "pexeafggdgs"          
         },
 
-      ]//,
-      //currentProduct: {}
+      ],
+      currentStudent: {}
     };
   },
   // created: function() {
@@ -56,12 +56,12 @@ var StudentsIndexPage = {
 
   //   }.bind(this));
   // },
-  // methods: {
-  //   setCurrentProduct: function(student) {
-  //     this.currentProduct = student;
-  //     console.log(this.currentProduct)
-  //   }
-  // }
+  methods: {
+    setCurrentStudent: function(student) {
+      this.currentStudent = student;
+      console.log(this.currentStudent);
+    }
+  }
 };
 
 var router = new VueRouter({
