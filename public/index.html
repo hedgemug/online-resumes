@@ -33,6 +33,11 @@
 
    <!-- Compiled and minified JavaScript -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+   <script>
+    $(document).ready(function(){    
+    $('.modal').modal();
+  });
+  </script>  
 </body>
 </html>
 
@@ -43,49 +48,33 @@
         <div class="col s3; center-align">
           <a href="/#/student/id"><img class="small-img" src="/images/1.jpg" alt="students photo"></a>
         </div>
-        <div class="col s9">
+        <div class="col s6">
           <p class="left-align; valign-wrapper">{{student.student_name}},  {{student.job_title}}</p>
           <p class="left-align; valign-wrapper">{{student.university_title}}</p>
 
         </div>
-      </div>
+        <div class="col s3">
+                  <!-- Modal Trigger -->
+          <button data-target="show-contact" class="btn modal-trigger" v-on:click="setCurrentStudent(student)">Contact</button>
 
-      
-
-        <!-- <img class="card-img-top small-img" :src="product.images[0]" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title"><a :href="'/#/products/' + product.id">{{ product.name }}</a></h4>
-            <p class="card-text ingredients">Price: ${{ product.price }}</p>
-            <p class="card-text directions">Information: {{ product.description }}</p>
-            <a v-on:click="setCurrentProduct(product)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">More info</a>
-            <a :href="'/#/products/' + product.id + '/edit'" class="btn btn-primary">Edit</a>            
-          </div>          
-        </div>       -->
-      
-    </div>
-      <!-- Modal -->
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">{{ currentProduct.name }}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          <
-          <div class="modal-body">
-            <img class="small-img" :src="currentProduct.images" alt="Card image cap">
-            <p> Price: ${{currentProduct.price }} </p>
-            <p> {{currentProduct.description }} </p>
-            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>            
-          </div>
         </div>
       </div>
+    </div>        
+
+    <!-- Modal Structure -->
+    <div id="show-contact" class="modal">
+      <div class="modal-content">        
+        <h5>{{currentStudent.student_name}}</h5>
+        <img class="small-img" src="/images/1.jpg" alt="students photo">        
+        <p>Email: {{ currentStudent.email }}</p>
+        <p>Phone: {{ currentStudent.phone_number }}</p>
+        <p>Linkedin: {{ currentStudent.linkedin_url }}</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Done</a>
+      </div>
     </div>
- -->
+          
 
   </div>      
 </template>
