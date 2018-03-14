@@ -140,20 +140,229 @@
 <template id="students-show-page">
   <div class="vue-component">
     <div class="container">
-      <img class="small-img z-depth-4" src="images/1.jpg" alt="">
+
+      <img src="images/1.jpg" alt="">
       <div class="row">
-        <div class="col">
-          <h3>{{student.first_name}} {{student.last_name}}</h3>
+        <div class="container">
+          <h3>About Me</h3>
         </div>
-        <div class="col">
-          <h3>{{student.job_title}}</h3>
+      </div>
+
+      <div class="row">
+        <div class="container">
+          <div class="col s6">
+            <h6>Name</h6>
+          </div>
+          <div class="col s6">
+            <h6>Current Position</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col s6">
+            <p>{{student.first_name}} {{student.last_name}}</p>
+          </div>
+          <div class="col s6">
+            <p>{{student.job_title}}</p>
+          </div>
+        </div>  
+      </div>
+      
+      <div class="row">
+        <div class="container">
+          <h6>Bio</h6>
         </div>
       </div>
       <div class="row">
-        <p>{{student.bio}}</p>
+        <div class="container">
+          <p>{{student.bio}}</p>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="row">
+        <div class="container">
+          <h3>Experience</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="col s4">
+            <h6>Company</h6>
+          </div>
+          <div class="col s4">
+            <h6>Job Title</h6>
+          </div>
+          <div class="col s4">
+            <h6>Start-End</h6>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="col s4">
+            <p>{{student.company}}</p>
+          </div>
+          <div class="col s4">
+            <p>{{student.job_title}}</p>
+          </div>
+          <div class="col s4">
+            <p>{{student.job_start_date}} - {{student.job_end_date}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <h6>Job Details</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <p>{{student.job_details}}</p>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="row">
+        <div class="container">
+          <h3>Education</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="col s4">
+            <h6>School</h6>
+          </div>
+          <div class="col s4">
+            <h6>Degree</h6>
+          </div>
+          <div class="col s4">
+            <h6>Start-End</h6>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="col s4">
+            <p>{{student.school}}</p>
+          </div>
+          <div class="col s4">
+            <p>{{student.degree}}</p>
+          </div>
+          <div class="col s4">
+            <p>{{student.startDate}} - {{student.endDate}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <h6>School Details</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <p>{{student.education_details}}</p>
+        </div>
       </div>
       
-      
+      <!-- SKILLS -->
+      <div class="row">
+        <div class="container">
+          <h3>Skills</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <ul>
+            <li v-for="skill in student.skills">
+              {{skill}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CAPSTONE -->
+      <div class="row">
+        <div class="container">
+          <h3>Capstone</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="col s6">
+            <h6>title</h6>
+          </div>
+          <div class="col s6">
+            <h6>Capstone URL</h6>
+          </div>
+        </div>
+      <div class="row">
+        <div class="container">
+          <div class="col s6">
+            <p>{{student.title}}</p>
+          </div>
+          <div class="col s6">
+            <p>{{student.url}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <h6>Capstone Description</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <p>{{student.capstone_description}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="container">
+          <h6>Capstone Screenshot</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <img class="responsive-img" src="images/capstone_example.jpg">
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="row">
+        <div class="container">
+          <h3>Contact</h3>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col s6">
+            <p><strong>Email</strong>: {{student.email}}</p>
+          </div>
+          <div class="col s6">
+            <p><strong>Twitter</strong>: {{student.twitterHandle}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <p><strong>Phone</strong>: {{student.phoneNumber}}</p>
+          </div>
+          <div class="col s6">
+            <p><strong>Github</strong>: {{student.githubUrl}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <p><strong>Website</strong>: {{student.websiteUrl}}</p>
+          </div>
+          <div class="col s6">
+            <p><strong>Linkedin</strong>: {{student.linkedinUrl}}</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
