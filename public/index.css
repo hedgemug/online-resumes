@@ -17,6 +17,16 @@ body {
     border-radius:30%;
   }
 
+  .middle-img {
+    display:block;
+    width: 200px;
+    border-radius:40%;
+    border: 3px solid Tomato;
+    margin: left 50%;    
+  }
+
+
+
   p {
   font-family: Tahoma, Monotipe;
   font-size:0.8em;  
