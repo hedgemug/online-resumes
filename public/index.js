@@ -44,8 +44,39 @@ var StudentsIndexPage = {
          photo: "pexeafggdgs"          
         },
 
+        {
+         id: 4, 
+         student_name: "Peter Pan", 
+         job_title: "Software Engineer",
+         email: "roadhouse@rosebud.com",
+         phone_number: "993-455559",
+         linkedin_url: "sumdolorbhg",
+         twit_handle: "Loremipsum",
+         online_resume_url: "utllgkytiquip",
+         university_title: "Exea Commodo Consequat",
+         photo: "yuieafggdgs"          
+        },
+
+        {
+         id: 5, 
+         student_name: "Mary Poppins", 
+         job_title: "Data scientist",
+         email: "sada@mail.com",
+         phone_number: "932-456766",
+         linkedin_url: "sumrbhg",
+         twit_handle: "Remipsum",
+         online_resume_url: "utllgkytiquip",
+         university_title: "Aute Iruredo Lor",
+         photo: "pexggdgs"          
+        },
+
       ],
-      currentStudent: {}
+      currentStudent: {},
+      nameFilter: "",
+      jobTitleFilter: "",
+      schoolFilter: "",
+      sortAttribute: "student_name",
+      sortAscending: true
     };
   },
   // created: function() {
@@ -60,8 +91,35 @@ var StudentsIndexPage = {
     setCurrentStudent: function(student) {
       this.currentStudent = student;
       console.log(this.currentStudent);
+    },
+  
+    isValidStudent: function(student) {
+      // return student.student_name.toLowerCase().includes(this.nameFilter.toLowerCase());
+      var validName = student.student_name.toLowerCase().includes(this.nameFilter.toLowerCase());
+      var validJob = student.job_title.toLowerCase().includes(this.jobTitleFilter.toLowerCase());
+      var validSchool = student.university_title.toLowerCase().includes(this.schoolFilter.toLowerCase());
+      return validName && validJob && validSchool;
+    },
+    setSortAttribute: function(attribute) {
+      if(attribute !== this.sortAttribute) {
+        this.sortAscending = true;
+      } else {
+        this.sortAscending = !this.sortAscending;
+      }
+      this.sortAttribute = attribute;
     }
-  }
+  },
+  computed: {
+    sortedStudents: function() {      
+      return this.students.sort(function(student1, student2) {
+        if(this.sortAscending) {
+          return student1[this.sortAttribute].localeCompare(student2[this.sortAttribute]);
+        } else {
+          return student2[this.sortAttribute].localeCompare(student1[this.sortAttribute]);
+        }
+      }.bind(this));
+    }
+  }  
 };
 
 var StudentsShowPage = {
