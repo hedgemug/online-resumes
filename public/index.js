@@ -131,9 +131,9 @@ var StudentsShowPage = {
         first_name: "Jeronimo",
         last_name: "Sedgwick",
         email: "jeronimo@mail.com",
-        phone_number: "123-456789",
-        linkedin_url: "ipsumdolor",
-        twit_handle: "Loremipsum",
+        phoneNumber: "123-456789",
+        linkedinUrl: "ipsumdolor",
+        twitterHandle: "@Loremipsum",
         websiteUrl: "loremweb.com",
         online_resume_url: "nisiutliquip",
         githubUrl: "github.com/loremip",
@@ -147,11 +147,13 @@ var StudentsShowPage = {
         job_details: "Greaet company, highly suggest it :)",
         school: "Lorem University",
         degree: "BA-Accounting",
+        startDate: "Sept 20, 2012",
+        endDate: "Dec 12, 2016",
         education_details: "Awesome school! 10/10 would go again",
         skills: ["writing", "coding", "speaking"],
-        capstone_title: "Amazing App",
+        title: "Amazing App",
         capstone_description: "It's in the title, such a good app! I promise.",
-        capstone_url: "amazingloremapp.com",
+        url: "amazingloremapp.com",
         captstone_photo: "http://capstoneorthopedic.com/wp-content/uploads/2016/05/capstone_logo_transBG_white.png"
       }
     };
