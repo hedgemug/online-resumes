@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Online Resumes App</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
@@ -62,7 +63,8 @@
     </datalist>    
     
     <div class="row">
-      <div class="col s9 center-align">
+      
+      <div class="col s10 center-align">
         <div>
           <button v-on:click="setSortAttribute('student_name')" class="btn modal-trigger waves-effect waves-light z-depth-4">Sort by name</button>
           <button v-on:click="setSortAttribute('job_title')" class="btn modal-trigger waves-effect waves-light z-depth-4">Sort by job</button>
@@ -72,19 +74,39 @@
     </div>    
     <br>
 
+    <div class="row">
+        <div class="col s2 center-align"></div>
+        <div class="col s2 center-align">
+          <h5 class="left-align valign-wrapper">Name</h5>
+        </div>
+        <div class="col s2 center-align">
+          <h5 class="left-align valign-wrapper">Job</h5>
+        </div>
+        <div class="col s2 center-align">
+          <h5 class="left-align valign-wrapper">School</h5>
+        </div>
+        <div class="col s4 center-align"></div>        
+    </div>
     <div  v-for="student in sortedStudents" v-if="isValidStudent(student)" v-bind:key="student.id">
     
       <div class="row">
-        <div class="col s3 center-align">
-          <a href="/#/student/id"><img class="small-img z-depth-4" src="/images/1.jpg" alt="students photo"></a>
+        <div class="col s2 center-align">
+          <a href="/#/students/id"><img class="small-img z-depth-4" src="/images/1.jpg" alt="students photo"></a>
         </div>
-        <div class="col s6">
-          <p class="left-align; valign-wrapper">{{student.student_name}},  {{student.job_title}}</p>
-          <p class="left-align; valign-wrapper">{{student.university_title}}</p>
+        <div class="col s2">
+          <a href="/#/student/id"><p class="left-align; valign-wrapper">{{student.student_name}}</p></a>
+        </div>
+        
+        <div class="col s2">
+          <p class="left-align; valign-wrapper">{{student.job_title}}</p>
+        </div>
 
+        <div class="col s2">
+          <p class="left-align valign-wrapper">{{student.university_title}}</p>
         </div>
-        <div class="col s3">
-          <a class="waves-effect waves-light btn" :href="'/#/students/' + student.id">Resume</a>
+
+        <div class="col s4">
+          <a class="waves-effect waves-light btn z-depth-4" :href="'/#/students/' + student.id">Resume</a>
                   <!-- Modal Trigger -->
           <button data-target="show-contact" class="btn modal-trigger waves-effect waves-light z-depth-4" v-on:click="setCurrentStudent(student)">Contact</button>
 
@@ -95,10 +117,15 @@
     <!-- Modal Structure -->
     <div id="show-contact" class="modal">
       <div class="modal-content">        
-        <h5>{{currentStudent.student_name}}</h5>
+        <a href="/#/currentStudent/1"><h5>{{currentStudent.student_name}}</h5></a>
         <img class="small-img z-depth-4" src="/images/1.jpg" alt="students photo">        
         <p>Email: {{ currentStudent.email }}</p>
-        <p>Phone: {{ currentStudent.phone_number }}</p>
+        <div class="inline-block">
+          <span>
+            <i class="material-icons">phone</i>
+            <p>Phone: {{ currentStudent.phone_number }}</p>
+          </span>
+        </div>  
         <p>Linkedin: {{ currentStudent.linkedin_url }}</p>
       </div>
       <div class="modal-footer">
@@ -113,7 +140,7 @@
 <template id="students-show-page">
   <div class="vue-component">
     <div class="container">
-      <img src="images/1.jpg" alt="">
+      <img class="small-img z-depth-4" src="images/1.jpg" alt="">
       <div class="row">
         <div class="col">
           <h3>{{student.first_name}} {{student.last_name}}</h3>
